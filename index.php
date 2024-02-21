@@ -1,3 +1,21 @@
+<?php 
+$pass_length = $_GET['pass_length'];
+
+$generate_password = function($pass_length){ 
+    $pass_array = [];
+    $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=[]{}|;:,.<>?';
+    for ( $i = 0 ; $i <= $pass_length; $i++){
+        $random_characters = rand(0, strlen($characters) - 1);
+        $pass_array[] = $characters[$random_characters];       
+    };
+    return implode('', $pass_array);
+}
+?>
+<?php $password = $generate_password($pass_length);?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +25,16 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css' integrity='sha512-b2QcS5SsA8tZodcDtGRELiGv5SaKSk1vDHDaQRda0htPYWZ6046lr3kJ5bAAQdpV2mmA/4v0wQF9MyU6/pDIAg==' crossorigin='anonymous'/>
     <title>Document</title>
 </head>
-<body>
+<body class="container">
+<form>
+  <div class="mb-3">
+    <label class="form-label">Inserisci il numero di caratteri che deve avere la tua password:</label>
+    <input type="number" class="form-control" name="pass_length" min="1" max="9" >
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<h1><?= $password ?></h1>
+
     
 </body>
 </html>

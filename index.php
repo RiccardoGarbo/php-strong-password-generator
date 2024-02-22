@@ -1,11 +1,11 @@
 
 <?php 
 include __DIR__ . '/function.php';
-
+session_start();
+$password = $generate_password($pass_length);
+$_SESSION['password'] = $password;
+if(strlen($password)>0)header('Location: password.php')
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,8 +23,7 @@ include __DIR__ . '/function.php';
     <input type="number" class="form-control" name="pass_length" min="1" max="9" >
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-
-<h1><?= $password ?></h1>
+ 
 
     
 </body>

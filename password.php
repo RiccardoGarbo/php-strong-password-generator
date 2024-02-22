@@ -1,5 +1,4 @@
 <?php session_start() ?>
-<?php var_dump($_SESSION['password'])?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +9,7 @@
     <title>Document</title>
 </head>
 <body class="container d-flex justify-content-center align-items-center vh-100 flex-column">
-    <h1>la tua password è: <?= $_SESSION['password'] ?></h1>
+    <h1>La tua password è: <span class="text-danger" ><?= $_SESSION['password'] ?></span></h1>
     <a href="index.php">Torna indietro</a> 
 </body>
 </html>
